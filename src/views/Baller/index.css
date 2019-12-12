@@ -1,0 +1,26 @@
+body {
+  background-color: var(--primary);
+}
+
+.card {
+  background-color: var(--secondary);
+}
+
+.card-header {
+  background-color: #343a40;
+  color: white;
+}
+
+.list-group-item, .btn{
+  background-color: var(--secondary);
+}
+
+#current_week {
+  color: var(--secondary);
+  padding: 10px;
+}
+
+.direction-btn {
+  background-color: var(--secondary);
+  margin-top: 75%;
+}
