@@ -15,6 +15,8 @@ function DropDown(props){
             team_name={team.team_name}
             color_1={team.color_1}
             color_2={team.color_2}
+            team_id={team.team_id}
+            update_state={props.update_state}
           />)
         }
       </div>
