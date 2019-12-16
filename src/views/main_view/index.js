@@ -1,20 +1,22 @@
 import React from 'react';
-import './index.css';
-import setTheme from '../../components/color_changer';
 import DropDown from '../../components/drop_down';
 import Test from '../../components/Test';
 
 
-
-
-
-class Baller extends React.Component {
+class MainView extends React.Component {
   constructor() {
     super();
 
     this.state = {
       output : [],
-      info: { "game": {
+      info: { "best_performance": {
+      "fantasy_avg": '',
+      "fantasy_score": '',
+      "performance": '',
+      "player_id": '',
+      "player_name": ''
+    },
+      "game": {
         "date": '',
         "game_id": '',
         "home_team": '',
@@ -27,7 +29,7 @@ class Baller extends React.Component {
       "mvp": {
         "player_id": '',
         "player_name": '',
-        "pts": ''
+        "performance": ''
       },
       "next_game": {
         "home_team": '',
@@ -67,7 +69,7 @@ class Baller extends React.Component {
 
   getTodaysResults = async(id) => {
 
-    const URL = `http://localhost:5000/api/test`;
+    const URL = `http://localhost:5000/api/getTodaysResults`;
 
     fetch(URL, {
      'method': 'GET',
@@ -106,4 +108,4 @@ class Baller extends React.Component {
     );
   }
 }
-export default Baller;
+export default MainView;

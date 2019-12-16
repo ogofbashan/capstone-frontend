@@ -1,14 +1,13 @@
-import React from 'react';
 import './index.css';
 
-function setTheme(color, colour, textcolor) {
-  color=color.slice(0,7)
-  colour=colour.slice(0,7)
-  textcolor=textcolor.slice(0,7)
-  document.documentElement.style.setProperty('--primary', color);
-  document.documentElement.style.setProperty('--secondary', colour);
-  document.documentElement.style.setProperty('--textcolor', textcolor);
-  document.getElementById("Result_Card").style.display= "inline";
+function setTheme(primary_color, secondary_color, text_color) {
+  primary_color=primary_color.slice(0,7)
+  secondary_color=secondary_color.slice(0,7)
+  text_color=text_color.slice(0,7)
+  document.documentElement.style.setProperty('--primary', primary_color);
+  document.documentElement.style.setProperty('--secondary', secondary_color);
+  document.documentElement.style.setProperty('--textcolor', text_color);
+  document.getElementById("result-card").style.display= "inline";
 
 }
 

@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import Baller from './views/Baller';
-import Header from './components/header';
-
+import MainView from './views/main_view';
 
 
 
@@ -11,10 +9,9 @@ import Header from './components/header';
 function App() {
   return(
     <div className="App">
-      <Header />
       <Switch>
         <div className="container">
-          <Route exact path='/' render={() => <Baller />} />
+          <Route exact path='/' render={() => <MainView />} />
         </div>
       </Switch>
 

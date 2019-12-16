@@ -1,5 +1,9 @@
 :root {
   --primary: #E47041;
   --secondary: Black;
-  --textcolor: Black;
+  --text_color: Black;
+}
+
+#result-card {
+  display: none;
 }
