@@ -15,9 +15,9 @@ function App() {
       <Switch>
         <div className="container">
           <Route exact path='/' render={() => <Baller />} />
-
         </div>
       </Switch>
+
     </div>
   );
 }

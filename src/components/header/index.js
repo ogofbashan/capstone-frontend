@@ -4,12 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 function Header() {
     return (
-      <header className="Header">
-        <nav className="navbar navbar-dark bg-dark">
-          <NavLink to='/' className='navbar-brand'> NBA</NavLink>
-
-        </nav>
-      </header>
+      <div>
+      </div>
     );
   }
 export default Header;

@@ -1,7 +1,8 @@
 import React from 'react';
 import './index.css';
-import setTheme from '../../components/color_changer'
-import DropDown from '../../components/drop_down'
+import setTheme from '../../components/color_changer';
+import DropDown from '../../components/drop_down';
+import Test from '../../components/Test';
 
 
 
@@ -14,45 +15,37 @@ class Baller extends React.Component {
     this.state = {
       output : [],
       info: { "game": {
-      "date": '',
-      "game_id": null,
-      "home_team": null,
-      "opp_team": null,
-      "opp_team_id": null,
-      "opp_team_score": null,
-      "result": null,
-      "team_score": null
+        "date": '',
+        "game_id": '',
+        "home_team": '',
+        "opp_team": '',
+        "opp_team_id": '',
+        "opp_team_score": '',
+        "result": '',
+        "team_score": ''
+      },
+      "mvp": {
+        "player_id": '',
+        "player_name": '',
+        "pts": ''
+      },
+      "next_game": {
+        "home_team": '',
+        "next_game_date": '',
+        "next_opp_team": '',
+        "next_opp_team_id": ''
+      },
+      "team": {
+        "team_abb": '',
+        "team_id": '',
+        "team_name": ''
+      }
     },
-    "mvp": {
-      "player_id": null,
-      "player_name": null,
-      "pts": null
-    },
-    "next_game": {
-      "home_team": null,
-      "next_game_date": null,
-      "next_opp_team": null,
-      "next_opp_team_id": null
-    },
-    "team": {
-      "team_abb": null,
-      "team_id": null,
-      "team_name": null
-    }
-  },
-    meh: true
-  };
-  this.changeBlah = this.changeBlah.bind(this);
 
   }
+}
 
-
-  changeBlah(){
-    this.setState({meh: false});
-    console.log(this.state.blah);
-  }
-
-  getTeamInfo = async() => {
+  createDropDown = async() => {
 
     const URL = `http://localhost:5000/api/dropdown`;
 
@@ -72,7 +65,7 @@ class Baller extends React.Component {
     .catch(err => alert(err));
   };
 
-  getTodaysResults = async() => {
+  getTodaysResults = async(id) => {
 
     const URL = `http://localhost:5000/api/test`;
 
@@ -80,14 +73,14 @@ class Baller extends React.Component {
      'method': 'GET',
      'headers': {
        'Content-Type': 'application/json',
-       'team_id' : 11,
+       'team_id' : id,
      }
    })
 
     .then(res => res.json())
     .then(data => {if (data.output) {
-    let info = data.output;
-    this.setState({ info }); console.log(this.state.info);}
+    let info = data.output; console.log(info);
+    this.setState({ info })}
   })
 
     .catch(err => alert(err));
@@ -96,47 +89,20 @@ class Baller extends React.Component {
 
 
   componentDidMount(){
-    this.getTeamInfo()
-    this.getTodaysResults()
+    this.createDropDown()
   }
 
   render() {
     return (
-    <div className='row'>
-    <div className= "col-md-3">
-      <button type="button" className="direction-btn btn btn btn-default">&laquo;</button>
-    </div>
-    <div className= "col-md-6">
-        <h1 id="current_week">{this.state.info.game.date}</h1>
-      <div className="card border-dark mb-3">
-      <div class="card-header" id="Team_Name_Header">{this.state.info.team.team_name}</div>
-        <div className="card-body">
-          <h6 className="card-subtitle">{this.state.info.game.result} {this.state.info.game.team_score}-{this.state.info.game.opp_team_score} against the {this.state.info.game.opp_team}</h6>
-          <p className="card-text">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"></li>
-
-              <li class="list-group-item">{this.state.info.mvp.player_name} scored {this.state.info.mvp.pts} points</li>
-              <li class="list-group-item"></li>
-
-            </ul>
-          </p>
-          <h6 className="card-subtitle">Next Game: {this.state.info.next_game.next_opp_team}</h6>
-
-        </div>
-        <div>
+      <div>
+        <Test
+          info={this.state.info}/>
+        <div className='drop_down'>
           <DropDown
-          output={this.state.output} />
+          output={this.state.output} getTodaysResults={this.getTodaysResults} />
         </div>
-
       </div>
 
-
-    </div>
-    <div className= "col-md-3">
-      <button type="button" className="direction-btn btn btn btn-default" onClick={this.changeBlah}>&raquo;</button>
-    </div>
-    </div>
     );
   }
 }

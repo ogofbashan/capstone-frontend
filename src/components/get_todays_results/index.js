@@ -1,7 +1,8 @@
 import React from 'react';
 import './index.css';
+import Test from '../Test';
 
-function GetTodaysResults(id, update_state){
+function GetTodaysResults(id){
 
   const URL = `http://localhost:5000/api/test`;
 
@@ -15,12 +16,13 @@ function GetTodaysResults(id, update_state){
 
   .then(res => res.json())
   .then(data => {if (data.output) {
-  let info = data.output; console.log(info);
-  update_state(info);}
+  let info = data.output; console.log(info);}
 })
 
   .catch(err => alert(err));
 
 };
+
+
 
 export default GetTodaysResults

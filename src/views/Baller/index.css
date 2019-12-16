@@ -2,8 +2,12 @@ body {
   background-color: var(--primary);
 }
 
+#Result_Card {
+  display: none;
+}
 .card {
   background-color: var(--secondary);
+  color: var(--textcolor);
 }
 
 .card-header {
@@ -20,7 +24,7 @@ body {
   padding: 10px;
 }
 
-.direction-btn {
+/* .direction-btn {
   background-color: var(--secondary);
   margin-top: 75%;
-}
+} */
