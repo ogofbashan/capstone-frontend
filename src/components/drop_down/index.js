@@ -1,13 +1,14 @@
 import React from 'react';
+import './index.css';
 import DropDownItem from '../drop_down_item';
 
 function DropDown(props){
   return(
     <div className="dropdown">
-      <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button className="btn btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Pick a Team
       </button>
-      <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div className="dropdown-menu columns" aria-labelledby="dropdownMenuButton">
         {
           props.output && props.output.map( team =>
           <DropDownItem

@@ -4,7 +4,7 @@ import setTheme from '../color_changer';
 
 function DropDownItem(props) {
   return (
-    <div>
+    <div id='test'>
     <a className="dropdown-item" onClick={() => {
       setTheme(props.color_1, props.color_2, props.text_color);
       props.getTodaysResults(props.team_id);
