@@ -2,6 +2,8 @@ import React from 'react';
 import './index.css';
 import DropDownItem from '../drop_down_item';
 
+//This component generates the drop down button, passing down the props to the DropDownItem component.
+
 function DropDown(props){
   return(
     <div className="dropdown">
@@ -17,7 +19,7 @@ function DropDown(props){
             color_2={team.color_2}
             text_color={team.text_color}
             team_id={team.team_id}
-            getTodaysResults={props.getTodaysResults}
+            createCard={props.createCard}
           />)
         }
       </div>

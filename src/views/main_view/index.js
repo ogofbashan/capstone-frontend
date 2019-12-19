@@ -1,8 +1,8 @@
 import React from 'react';
 import DropDown from '../../components/drop_down';
-import Test from '../../components/Test';
+import Card from '../../components/card';
 
-
+// MainView first constructs a null state to allow the app to render
 class MainView extends React.Component {
   constructor() {
     super();
@@ -47,9 +47,10 @@ class MainView extends React.Component {
   }
 }
 
+//This function generates the DropDownButton
   createDropDown = async() => {
 
-    const URL = `http://localhost:5000/api/dropdown`;
+    const URL = `https://capstone-backend-231.herokuapp.com/api/dropdown`;
 
     fetch(URL, {
      'method': 'GET',
@@ -67,9 +68,10 @@ class MainView extends React.Component {
     .catch(err => alert(err));
   };
 
-  getTodaysResults = async(id) => {
+//This function creates the Info Card
+  createCard = async(id) => {
 
-    const URL = `http://localhost:5000/api/getTodaysResults`;
+    const URL = `https://capstone-backend-231.herokuapp.com/api/getTodaysResults`;
 
     fetch(URL, {
      'method': 'GET',
@@ -88,7 +90,7 @@ class MainView extends React.Component {
     .catch(err => alert(err));
   };
 
-
+//Once the component mounts, the view calls the createDropDown function.
 
   componentDidMount(){
     this.createDropDown()
@@ -97,11 +99,11 @@ class MainView extends React.Component {
   render() {
     return (
       <div>
-        <Test
+        <Card
           info={this.state.info}/>
         <div className='drop_down'>
           <DropDown
-          output={this.state.output} getTodaysResults={this.getTodaysResults} />
+          output={this.state.output} createCard={this.createCard} />
         </div>
       </div>
 

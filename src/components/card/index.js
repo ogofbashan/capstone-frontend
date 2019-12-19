@@ -3,7 +3,7 @@ import './index.css';
 
 
 
-class Test extends React.Component {
+class Card extends React.Component {
 render() {
   return (
   <div id="result-card" className='row'>
@@ -34,4 +34,4 @@ render() {
   }
 }
 
-export default Test;
+export default Card;
